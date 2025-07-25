@@ -1,0 +1,34 @@
+kotlin.code.style=official
+
+# Done to increase the memory available to gradle.
+org.gradle.jvmargs=-Xmx1G
+org.gradle.parallel=true
+
+# Mod Properties
+mod_id=${mod_id}
+mod_name=${mod_name}
+mod_license=${mod_license}
+mod_version=${mod_version}
+mod_group_id=${mod_group_id}
+mod_authors=${mod_authors}
+mod_description=${mod_description}
+mod_fabric_entrypoint=${mod_fabric_entrypoint}
+
+# template values
+modl_kotlin_mp_version=${modl_kotlin_mp_version}
+modl_minecraft_version=${modl_minecraft_version}
+modl_kotlin_jvm_ver=${modl_kotlin_jvm_ver}
+modl_java_version=${modl_java_version}
+modl_fabric_api_ver=${modl_fabric_api_ver}
+modl_fabric_loader_ver=${modl_fabric_loader_ver}
+modl_fabric_loom_ver=${modl_fabric_loom_ver}
+modl_fabric_yarn_ver=${modl_fabric_yarn_ver}
+modl_fabric_kotlin_ver=${modl_fabric_kotlin_ver}
+modl_forge_ver=${modl_forge_ver}
+modl_forge_gradle_ver=${modl_forge_gradle_ver}
+modl_forge_eventbus_ver=${modl_forge_eventbus_ver}
+modl_forge_pack_format=${modl_forge_pack_format}
+modl_neoforge_ver=${modl_neoforge_ver}
+modl_neoforge_moddev_ver=${modl_neoforge_moddev_ver}
+modl_patchment_ver=${modl_patchment_ver}
+modl_patchment_map=${modl_patchment_map}

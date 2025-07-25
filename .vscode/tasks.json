@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build with MC_VER",
+      "type": "shell",
+      "command": "python",
+      "args": ["python/build.py"],
+      "options": {
+        "env": {
+          "MC_VER": "${input:mcVerInput}"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "python",
+      "args": ["python/build_clean.py"],
+      "group": {
+        "kind": "build"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "mcVerInput",
+      "type": "promptString",
+      "description": "Enter MC_VER (e.g., 1.21.6)",
+      "default": "1.21.6"
+    }
+  ]
+}

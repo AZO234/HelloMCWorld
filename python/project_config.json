@@ -1,0 +1,10 @@
+{
+  "mod_id": "hellomcworld",
+  "mod_name": "HelloMCWorld Mod",
+  "mod_license": "MIT License",
+  "mod_version": "1.0.0",
+  "mod_group_id": "me.azo234.hellomcworld",
+  "mod_authors": "AZO234",
+  "mod_description": "HelloMCWorld Mod",
+  "mod_classname": "HelloMCWorld"
+}

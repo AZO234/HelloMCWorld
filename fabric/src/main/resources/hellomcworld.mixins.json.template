@@ -1,0 +1,12 @@
+{
+	"required": false,
+	"package": "${mod_group_id}.mixin",
+	"compatibilityLevel": "JAVA_${modl_java_version}",
+	"mixins": [],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

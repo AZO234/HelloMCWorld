@@ -1,0 +1,65 @@
+package me.azo234.hellomcworld;
+
+import me.azo234.hellomcworld.common.IMCImplement;
+import me.azo234.hellomcworld.common.mcEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+// The value here should match an entry in the META-INF/neoforge.mods.toml file
+@Mod(HelloMCWorld.MODID)
+public class HelloMCWorld implements IMCImplement {
+    public static final HelloMCWorld INSTANCE = new HelloMCWorld();
+    public static final Logger LOGGER = LoggerFactory.getLogger("hellomcworldmod");
+
+    // Define mod id in a common place for everything to reference
+    public static final String MODID = "hellomcworld";
+
+    public HelloMCWorld() {
+    }
+
+    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+            ServerPlayer player = (ServerPlayer) event.getEntity();
+            HelloMCWorld.INSTANCE.onLogin(player);
+        }
+    }
+
+    public void onLogin(ServerPlayer player) {
+        mcEvent.INSTANCE.mcOnLogin(this, player);
+    }
+
+    @Override
+    public String mcModloaderName() {
+        return "NeoForge";
+    }
+
+    @Override
+    public String mcTranslate(String key, Object... args) {
+        return Component.translatable(key, args).getString();
+    }
+
+    @Override
+    public void mcLog(String text) {
+        LOGGER.info(text);
+    }
+
+    @Override
+    public void mcMessageFabric(String text, boolean overlay) {
+        // not used
+    }
+
+    @Override
+    public void mcMessageForge(Object player, String text, boolean overlay) {
+        ((ServerPlayer)player).sendSystemMessage(Component.literal(text), overlay);
+    }
+}

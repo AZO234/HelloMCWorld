@@ -1,0 +1,63 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "${modl_kotlin_jvm_ver}" apply false
+}
+
+group = mod_group_id
+version = mod_version
+
+tasks.named('wrapper', Wrapper).configure {
+    // Define wrapper values here so as to not have to always do so when updating gradlew.properties.
+    // Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
+    // documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
+    // file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
+    // (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+tasks.register("buildWithPrompt") {
+    group = "build"
+    description = "Prompt for MC_VER and run build.py with it"
+
+    doLast {
+        def console = System.console()
+        if (console == null) {
+            throw new GradleException("No console available. Run from terminal.")
+        }
+
+        def mcVer = console.readLine("Enter MC_VER (e.g. 1.21.7): ")
+        if (!mcVer) {
+            throw new GradleException("MC_VER is required")
+        }
+
+        exec {
+            environment "MC_VER", mcVer
+            commandLine "python", "python/build.py"
+        }
+    }
+}
+
+tasks.register("cleanGenerated") {
+    group = "build"
+    description = "Clean generated mod sources"
+
+    doLast {
+        exec {
+            commandLine "python", "python/build_clean.py"
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+
+    plugins.withId("org.jetbrains.kotlin.jvm") {
+        def javaVersion = "${modl_java_version ?: '21'}" as int
+        kotlin {
+            jvmToolchain(javaVersion)
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}

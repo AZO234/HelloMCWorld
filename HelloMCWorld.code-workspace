@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack",
+      "fwcd.kotlin",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "zeshuaro.vscode-python-poetry",
+      "ms-python.debugpy",
+      "zainchen.json",
+      "tamasfe.even-better-toml"
+    ]
+  }
+}

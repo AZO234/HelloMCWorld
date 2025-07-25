@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+}
+
+apply plugin: 'org.jetbrains.kotlin.jvm'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/kotlin']
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+}

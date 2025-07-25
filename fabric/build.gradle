@@ -1,0 +1,93 @@
+plugins {
+	id 'fabric-loom' version "${modl_fabric_loom_ver}"
+	id 'java-library'
+}
+
+apply plugin: 'maven-publish'
+
+version = project.mod_version
+group = project.mod_group_id
+
+base {
+	archivesName = project.mod_id
+}
+
+repositories {
+	// Add repositories to retrieve artifacts from in here.
+	// You should only use this when depending on other mods because
+	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
+	// for more information about repositories.
+}
+
+dependencies {
+	// To change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${modl_minecraft_version}"
+	mappings "net.fabricmc:yarn:${modl_fabric_yarn_ver}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${modl_fabric_loader_ver}"
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${modl_fabric_api_ver}"
+	modImplementation "net.fabricmc:fabric-language-kotlin:${modl_fabric_kotlin_ver}"
+
+	implementation project(":common")
+	include project(":common")
+	implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": inputs.properties.version
+	}
+}
+
+def javaVersion = "${modl_java_version ?: '21'}" as int
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = javaVersion
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+	kotlinOptions {
+		jvmTarget = modl_java_version
+	}
+}
+
+def javaVersionEnum = JavaVersion.toVersion(javaVersion)
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+
+	sourceCompatibility = javaVersionEnum
+	targetCompatibility = javaVersionEnum
+}
+
+jar {
+	inputs.property "archivesName", project.base.archivesName
+
+	from("LICENSE") {
+		rename { "${it}_${inputs.properties.archivesName}"}
+	}
+}
+
+
+// configure the maven publication
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.mod_id
+			from components.java
+		}
+	}
+
+ 	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	repositories {
+		// Add repositories to publish to here.
+		// Notice: This block does NOT have the same function as the block in the top level.
+		// The repositories here will be used for publishing your artifact, not for
+		// retrieving dependencies.
+	}
+}
