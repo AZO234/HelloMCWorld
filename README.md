@@ -42,8 +42,8 @@ python python/build_clean.py
 
 ### Artifacts
 
-hllomcworld-x.x.x.jar  
-will be generated in each of the fabric/forge/neoforge directories, so place it in the mods directory.
+hellomcworld-x.x.x.jar  
+will be generated in each of the fabric/forge/neoforge's build/libs directories, so place it in the Minecraft's mods directory.
 
 ## Japanese / 日本語
 
@@ -86,9 +86,9 @@ python python/build_clean.py
 
 ### 成果物（アーティファクト）
 
-fabric/forge/neoforge の各ディレクトリに、  
+fabric/forge/neoforge の buiild/libs ディレクトリに、  
 hellomcworld-x.x.x.jar  
-が生成されるので、mods ディレクトリに入れて下さい。
+が生成されるので、マインクラフトの mods ディレクトリに入れて下さい。
 
 ## Donation / 寄付
 
