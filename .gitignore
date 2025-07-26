@@ -58,9 +58,10 @@ replay_*.log
 gradle.properties
 fabric/src/main/resources/*
 !fabric/src/main/resources/fabric.mod.json.template
+forge/src/main/resources/assets
+forge/src/main/resources/META-INF/mods.toml
+forge/src/main/resources/icon.png
+forge/src/main/resources/pack.mcmeta
 !fabric/src/main/resources/*.mixins.json.template
-forge/src/main/resources/*
-!forge/src/main/resources/META-INF/mods.toml.template
-!forge/src/main/resources/pack.mcmeta.template
 neoforge/src/main/resources/*
 neoforge/src/main/templates/META-INF/neoforge.mods.toml
