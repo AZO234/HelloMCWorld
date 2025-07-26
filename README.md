@@ -1,18 +1,35 @@
 # HelloMCWorld
 
+![HelloMCWorld on NeoForge](images/hellomcworld_neoforge.png "HelloMCWorld on NeoForge")
+
 "Hello MC World!!" mod
 
-## English
+[日本語はこちら](README_ja.md)
 
-This is an example mod that displays "Hello, world" in the chat GUI.
+This is an example mod that displays "Hello, world" in the chat GUI when user login to world.
 
 It is displayed using common code (Kotlin) in the Fabric/Forge/NeoForge mod loader.
 
 See common/src/kotlin/.../hellomcworld/HelloMCWorld.kt
 
-### Build
+## Mods required other than the mod loader
 
-#### Windows
+- Fabric
+  - [Fabric API](https://modrinth.com/mod/fabric-api)
+  - [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin)
+
+## Development environment
+
+- [SDKMAN!](https://sdkman.io/install)
+  - [OpenJDK 21.x.x](https://sdkman.io/jdks/open)
+- (Windows)[Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
+- (append: IDE) [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/) or [VSCode](https://code.visualstudio.com/)
+
+## Build
+
+### Windows
+
+#### Windows PowerShell
 
 - Build
 
@@ -26,7 +43,9 @@ MC_VER=1.21.8 python python\\build.py
 python python\\build_clean.py
 ```
 
-#### Linux/macOS
+### Linux/macOS
+
+#### shell
 
 - Build
 
@@ -40,58 +59,37 @@ MC_VER=1.21.8 python python/build.py
 python python/build_clean.py
 ```
 
-### Artifacts
+### IntelliJ IDEA Community Edition
 
-hellomcworld-x.x.x.jar  
-will be generated in each of the fabric/forge/neoforge's build/libs directories, so place it in the Minecraft's mods directory.
+![Build on IntelliJ IDEA](images/hellomcworld_build_intellij.png "Build on IntelliJ IDEA")
 
-## Japanese / 日本語
+- Build
 
-"こんにちは、世界"をチャットGUIに表示するmod例です。
+Gradle -> Tasks -> build -> build
 
-Fabric/Forge/NeoForge のmodローダに共通コード（Kotlin）で表示させています。
+- Clean
 
-common/src/kotlin/.../hellomcworld/HelloMCWorld.kt  
-をご覧ください。
+Gradle -> Tasks -> build -> clean
 
-### ビルド
+### VSCode
 
-#### Windows
+![Build on VSCode](images/hellomcworld_build_vscode.png "[Build on VSCode")
 
-- ビルド
+- Build
 
-``` powershell
-MC_VER=1.21.8 python python\\build.py
-```
+task -> Build with MC_VER
 
-- クリーン
+- Clean
 
-``` powershell
-python python\\build_clean.py
-```
+task -> Clean
 
-#### Linux/macOS
+## Artifacts
 
-- ビルド
+`hellomcworld-x.x.x.jar`  
+will be generated in each of the `fabric/forge/neoforge`'s `build/libs` directories, so place it in the Minecraft's `mods` directory.
 
-``` bash
-MC_VER=1.21.8 python python/build.py
-```
+# Donation!
 
-- クリーン
+[![Buy Me a Coffee](https://img.shields.io/badge/buy_me_an-emerald_coffee!-3C9A3C?style=for-the-badge&logo=minecraft)](https://coff.ee/azo234) ☕💚
 
-``` bash
-python python/build_clean.py
-```
-
-### 成果物（アーティファクト）
-
-fabric/forge/neoforge の buiild/libs ディレクトリに、  
-hellomcworld-x.x.x.jar  
-が生成されるので、マインクラフトの mods ディレクトリに入れて下さい。
-
-## Donation / 寄付
-
-[![Buy Me a Coffee](https://img.shields.io/badge/buy_me_an-emerald_coffee-3C9A3C?style=for-the-badge&logo=minecraft)](https://coff.ee/azo234) ☕💚
-
-[![Sponsor with Diamond](https://img.shields.io/badge/please-diamond_sponsor_me-00ccff?style=for-the-badge&logo=minecraft)](https://github.com/sponsors/azo234) 💎✨
+[![Sponsor with Diamond](https://img.shields.io/badge/please-diamond_sponsor_me!-00ccff?style=for-the-badge&logo=minecraft)](https://github.com/sponsors/azo234) 💎✨

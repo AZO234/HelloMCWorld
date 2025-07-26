@@ -20,7 +20,7 @@ with open("gradle.properties", "w") as f:
     f.write(result)
 
 # props
-with open("python/modl_versions.json") as f:
+with open("python/modl_versions_21.json") as f:
     versions = json.load(f)
 if mc_ver not in versions:
     print(f"🛑 Version {mc_ver} not found")

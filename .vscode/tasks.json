@@ -32,8 +32,8 @@
     {
       "id": "mcVerInput",
       "type": "promptString",
-      "description": "Enter MC_VER (e.g., 1.21.6)",
-      "default": "1.21.6"
+      "description": "Enter MC_VER (e.g., 1.21.8)",
+      "default": "1.21.8"
     }
   ]
 }

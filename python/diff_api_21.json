@@ -1,0 +1,69 @@
+[
+  {
+    "mocloader": "fabric",
+    "1.21.8": { "inherit": "1.21.7" },
+    "1.21.7": {},
+    "1.21.6": { "inherit": "1.21.7" },
+    "1.21.5": { "inherit": "1.21.7" },
+    "1.21.4": { "inherit": "1.21.7" },
+    "1.21.3": { "inherit": "1.21.7" },
+    "1.21.2": { "inherit": "1.21.7" },
+    "1.21.1": { "inherit": "1.21.7" },
+    "1.21": { "inherit": "1.21.7" },
+    "1.20.5": { "inherit": "1.21.7" },
+    "1.20.6": { "inherit": "1.21.7" }
+  },
+  {
+    "modloader": "forge",
+    "1.21.8": { "inherit": "1.21.7" },
+    "1.21.7": {},
+    "1.21.6": { "inherit": "1.21.7" },
+    "1.21.5": {
+      "template": "forge/src/main/java/${mod_group_id}/${mod_classname}.java.template",
+      "locate": "forge/src/main/java/${mod_group_id}/${mod_classname}.java",
+      "diff": [
+        {
+          "pattern": "import net\\.minecraftforge\\.eventbus\\.api\\.listener\\.SubscribeEvent;",
+          "replacement": "import net.minecraftforge.eventbus.api.SubscribeEvent;"
+        },
+        {
+          "pattern": "@Mod\\.EventBusSubscriber\\(modid = (.*?), value = Dist\\.CLIENT\\)",
+          "replacement": "@Mod.EventBusSubscriber(modid = \\1, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)"
+        },
+        {
+          "pattern": "import net\\.minecraftforge\\.common\\.MinecraftForge;",
+          "replacement": ""
+        },
+        {
+          "pattern": "import net\\.minecraftforge\\.event\\.server\\.ServerStartingEvent;",
+          "replacement": ""
+        },
+        {
+          "pattern": "import net\\.minecraftforge\\.eventbus\\.api\\.IEventBus;",
+          "replacement": ""
+        }
+      ]
+    },
+    "1.21.4": { "inherit": "1.21.5" },
+    "1.21.3": { "inherit": "1.21.5" },
+    "1.21.2": { "inherit": "1.21.5" },
+    "1.21.1": { "inherit": "1.21.5" },
+    "1.21": { "inherit": "1.21.5" },
+    "1.20.6": { "inherit": "1.21.5" },
+    "1.20.5": { "inherit": "1.21.5" }
+  },
+  {
+    "mocloader": "neoforge",
+    "1.21.8": { "inherit": "1.21.7" },
+    "1.21.7": {},
+    "1.21.6": { "inherit": "1.21.7" },
+    "1.21.5": { "inherit": "1.21.7" },
+    "1.21.4": { "inherit": "1.21.7" },
+    "1.21.3": { "inherit": "1.21.7" },
+    "1.21.2": { "inherit": "1.21.7" },
+    "1.21.1": { "inherit": "1.21.7" },
+    "1.21": { "inherit": "1.21.7" },
+    "1.20.6": { "inherit": "1.21.7" },
+    "1.20.5": { "inherit": "1.21.7" }
+  }
+]

@@ -9,7 +9,7 @@ with open("python/project_config.json") as f:
     configs = json.load(f)
 
 mc_ver = os.environ.get("MC_VER", mcv["current_mc_version"])
-with open("python/modl_versions.json") as f:
+with open("python/modl_versions_21.json") as f:
     versions = json.load(f)
 version_data = versions.get(mc_ver, {})
 

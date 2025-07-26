@@ -187,8 +187,8 @@ jar {
         project(":common").sourceSets.main.output
     }
     from {
-        configurations.runtimeClasspath.filter {
-            it.name.startsWith("kotlin-stdlib")
+        configurations.runtimeClasspath.findAll {
+            it.name.contains("kotlin-stdlib")
         }.collect {
             zipTree(it)
         }
