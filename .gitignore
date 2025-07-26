@@ -55,10 +55,12 @@ replay_*.log
 
 
 ### Minecraft Mod ###
+gradle.properties
 fabric/src/main/resources/*
 !fabric/src/main/resources/fabric.mod.json.template
 !fabric/src/main/resources/hellomcworld.mixins.json.template
 forge/src/main/resources/*
-!forge/src/main/pack.mcmeta.template
+!forge/src/main/resources/META-INF/mods.toml.template
+!forge/src/main/resources/pack.mcmeta.template
 neoforge/src/main/resources/*
 neoforge/src/main/templates/META-INF/neoforge.mods.toml
