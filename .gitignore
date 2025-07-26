@@ -58,7 +58,7 @@ replay_*.log
 gradle.properties
 fabric/src/main/resources/*
 !fabric/src/main/resources/fabric.mod.json.template
-!fabric/src/main/resources/hellomcworld.mixins.json.template
+!fabric/src/main/resources/*.mixins.json.template
 forge/src/main/resources/*
 !forge/src/main/resources/META-INF/mods.toml.template
 !forge/src/main/resources/pack.mcmeta.template

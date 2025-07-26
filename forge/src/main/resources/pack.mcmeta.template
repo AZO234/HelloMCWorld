@@ -1,0 +1,6 @@
+{
+  "pack": {
+    "description": "${mod_id} resources",
+    "pack_format": ${modl_forge_pack_format}
+  }
+}
