@@ -6,7 +6,7 @@ with open("python/current_mc_version.json") as f:
 mc_ver = os.environ.get("MC_VER", mcv["current_mc_version"])
 
 # === Config ===
-DIFF_API_URL = os.environ.get("DIFF_API_URL", "python/diff_api_21.json")
+DIFF_API_URL = os.environ.get("DIFF_API_URL", "https://github.com/AZO234/MCModFixer/raw/refs/heads/main/diff_api_21.json")
 PROJECT_CONFIG_PATH = os.environ.get("PROJECT_CONFIG", "python/project_config.json")
 
 # === Load JSON ===
