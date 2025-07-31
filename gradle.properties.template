@@ -12,10 +12,9 @@ mod_version=${mod_version}
 mod_group_id=${mod_group_id}
 mod_authors=${mod_authors}
 mod_description=${mod_description}
-mod_fabric_entrypoint=${mod_fabric_entrypoint}
+mod_classname=${mod_classname}
 
 # template values
-modl_kotlin_mp_version=${modl_kotlin_mp_version}
 modl_minecraft_version=${modl_minecraft_version}
 modl_kotlin_jvm_ver=${modl_kotlin_jvm_ver}
 modl_java_version=${modl_java_version}
